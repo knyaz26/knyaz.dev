@@ -29,7 +29,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func main() {
     //parse html in here:
     //make sure to pass in all the parameters includeing named templates.
-    homeTemplate, _ = template.ParseFiles("templates/home.html")
+    homeTemplate, _ = template.ParseFiles("templates/home.html", "templates/navbar.html")
 
     //set up handler function here:
     //pass in a URL adress and function name.
