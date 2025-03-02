@@ -1,5 +1,6 @@
 /* imports */
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* globals */
@@ -22,7 +23,6 @@ body {
     background: #332f35;
     display: flex;
     flex-direction: column;
-    margin-top: 3em;
     overflow-x: hidden;
 }
 
@@ -75,6 +75,24 @@ hr {
     margin: 1em 0
 }
 
+ul {
+    color: #27232a;
+}
+
+header {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+nav{
+    display: flex;
+    max-width: 80rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* classes */
 
 .frame_light {
     border: solid 4px #27232a;
@@ -89,13 +107,26 @@ hr {
     background: #27232a;
     padding: 2em;
     border-radius: .5em;
-    margin: 2em 0;
+    margin: 1em 0;
     font-size: 1.25em;
 }
-
-/* classes */
 
 .content {
     max-width: 60rem;
     margin: 0 auto;
+}
+
+.page_primary {
+    font-family: 'Anton';
+    font-size: 3rem;
+    font-weight: 1300;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.page_secondary {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
