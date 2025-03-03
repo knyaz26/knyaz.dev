@@ -111,7 +111,7 @@ nav{
     background: #27232a;
     padding: 2em;
     border-radius: .5em;
-    margin: 1em 0;
+    margin: 1em 1em;
     font-size: 1.25em;
 }
 
@@ -165,10 +165,19 @@ nav{
     margin: 1em 0;
 }
 
+.cropped_img {
+    width: 10em;
+    height: 8em;
+}
+
 /* IDs */
 
 #frame_contact {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#project_div {
+    flex-direction: column;
 }
