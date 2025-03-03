@@ -17,6 +17,7 @@ MANUAL ON HOW TO USE THIS THINGIE:
 var(
     homeTemplate *template.Template
     contactTemplate *template.Template
+    projectsTemplate *template.Template
 )
 
 //set up functions here:
@@ -34,16 +35,25 @@ func Contact(w http.ResponseWriter, r *http.Request) {
     }
 }
 
+func Projects(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/html")
+    if err := projectsTemplate.Execute(w, nil); err != nil {
+        panic(err)
+    }
+}
+
 func main() {
     //parse html in here:
     //make sure to pass in all the parameters includeing named templates.
     homeTemplate, _ = template.ParseFiles("templates/home.html", "templates/navbar.html", "templates/footer.html")
     contactTemplate, _ = template.ParseFiles("templates/contact.html", "templates/navbar.html", "templates/footer.html")
+    projectsTemplate, _ = template.ParseFiles("templates/projects.html", "templates/navbar.html", "templates/footer.html")
 
     //set up handler function here:
     //pass in a URL adress and function name.
     http.HandleFunc("/", Home)
     http.HandleFunc("/contact", Contact)
+    http.HandleFunc("/projects", Projects)
 
     //misc:
     http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("static"))))
