@@ -102,6 +102,7 @@ nav{
     text-align: center;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .frame_dark {
@@ -166,8 +167,8 @@ nav{
 }
 
 .cropped_img {
-    width: 10em;
-    height: 8em;
+    width: 8em;
+    height: 6em;
 }
 
 /* IDs */
