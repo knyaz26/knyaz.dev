@@ -171,6 +171,10 @@ nav{
     height: 6em;
 }
 
+.link_div:hover {
+    border-bottom: none;
+}
+
 /* IDs */
 
 #frame_contact {
@@ -181,4 +185,5 @@ nav{
 
 #project_div {
     flex-direction: column;
+    padding: 0;
 }
