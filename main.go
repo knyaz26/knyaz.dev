@@ -1,82 +1,44 @@
 package main
 
 import (
+    "fmt"
     "html/template"
     "net/http"
+    "path/filepath"
 )
 
-/*
-MANUAL ON HOW TO USE THIS THINGIE:
--declare a variable of a template.
--set up a function for a page.
--parse the html in main function.
--set up a hander function in main.
-*/
-
-//declare variables here:
-var(
-    homeTemplate *template.Template
-    contactTemplate *template.Template
-    projectsTemplate *template.Template
-    blogTemplate *template.Template
-    resourcesTemplate *template.Template
-)
-
-//set up functions here:
-func Home(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-    if err := homeTemplate.Execute(w, nil); err != nil {
-        panic(err)
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+    layoutPath := filepath.Join("templates", "layout", "navbar.html")
+    footerPath := filepath.Join("templates", "layout", "footer.html")
+    tmplPath := filepath.Join("templates", tmpl)
+    t, err := template.ParseFiles(tmplPath, layoutPath, footerPath)
+    if err != nil {
+        http.Error(w, fmt.Sprintf("Error parsing template: %v", err), http.StatusInternalServerError)
+        return
+    }
+    if err := t.Execute(w, nil); err != nil {
+        http.Error(w, fmt.Sprintf("Error executing template: %v", err), http.StatusInternalServerError)
     }
 }
 
-func Contact(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-    if err := contactTemplate.Execute(w, nil); err != nil {
-        panic(err)
-    }
-}
-
-func Projects(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-    if err := projectsTemplate.Execute(w, nil); err != nil {
-        panic(err)
-    }
-}
-
-func Blog(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-    if err := blogTemplate.Execute(w, nil); err != nil {
-        panic(err)
-    }
-}
-
-func Resources(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "text/html")
-    if err := resourcesTemplate.Execute(w, nil); err != nil {
-        panic(err)
+func handler(tmpl string) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        renderTemplate(w, tmpl)
     }
 }
 
 func main() {
-    //parse html in here:
-    //make sure to pass in all the parameters includeing named templates.
-    homeTemplate, _ = template.ParseFiles("templates/home.html", "templates/navbar.html", "templates/footer.html")
-    contactTemplate, _ = template.ParseFiles("templates/contact.html", "templates/navbar.html", "templates/footer.html")
-    projectsTemplate, _ = template.ParseFiles("templates/projects.html", "templates/navbar.html", "templates/footer.html")
-    blogTemplate, _ = template.ParseFiles("templates/blog.html", "templates/navbar.html", "templates/footer.html")
-    resourcesTemplate, _ = template.ParseFiles("templates/resources.html", "templates/navbar.html", "templates/footer.html")
+    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-    //set up handler function here:
-    //pass in a URL adress and function name.
-    http.HandleFunc("/", Home)
-    http.HandleFunc("/contact", Contact)
-    http.HandleFunc("/projects", Projects)
-    http.HandleFunc("/blog", Blog)
-    http.HandleFunc("/resources", Resources)
+    http.HandleFunc("/", handler("home.html"))
+    http.HandleFunc("/contact", handler("contact.html"))
+    http.HandleFunc("/blog", handler("blog.html"))
+    http.HandleFunc("/projects", handler("projects.html"))
+    http.HandleFunc("/resources", handler("resources.html"))
 
-    //misc:
-    http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("static"))))
-    http.ListenAndServe(":10000", nil)
+    fmt.Println("Starting server on :8080...")
+    if err := http.ListenAndServe(":8080", nil); err != nil {
+        fmt.Printf("Error starting server: %v\n", err)
+    }
 }
 
