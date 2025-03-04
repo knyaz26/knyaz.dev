@@ -30,11 +30,15 @@ func handler(tmpl string) http.HandlerFunc {
 func main() {
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
+    //main pages
     http.HandleFunc("/", handler("home.html"))
     http.HandleFunc("/contact", handler("contact.html"))
     http.HandleFunc("/blog", handler("blog.html"))
     http.HandleFunc("/projects", handler("projects.html"))
     http.HandleFunc("/resources", handler("resources.html"))
+
+    //secondary pages
+    http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
 
     fmt.Println("Starting server on :8080...")
     if err := http.ListenAndServe(":8080", nil); err != nil {
