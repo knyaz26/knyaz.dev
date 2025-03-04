@@ -19,6 +19,7 @@ var(
     contactTemplate *template.Template
     projectsTemplate *template.Template
     blogTemplate *template.Template
+    resourcesTemplate *template.Template
 )
 
 //set up functions here:
@@ -50,6 +51,13 @@ func Blog(w http.ResponseWriter, r *http.Request) {
     }
 }
 
+func Resources(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "text/html")
+    if err := resourcesTemplate.Execute(w, nil); err != nil {
+        panic(err)
+    }
+}
+
 func main() {
     //parse html in here:
     //make sure to pass in all the parameters includeing named templates.
@@ -57,6 +65,7 @@ func main() {
     contactTemplate, _ = template.ParseFiles("templates/contact.html", "templates/navbar.html", "templates/footer.html")
     projectsTemplate, _ = template.ParseFiles("templates/projects.html", "templates/navbar.html", "templates/footer.html")
     blogTemplate, _ = template.ParseFiles("templates/blog.html", "templates/navbar.html", "templates/footer.html")
+    resourcesTemplate, _ = template.ParseFiles("templates/resources.html", "templates/navbar.html", "templates/footer.html")
 
     //set up handler function here:
     //pass in a URL adress and function name.
@@ -64,6 +73,7 @@ func main() {
     http.HandleFunc("/contact", Contact)
     http.HandleFunc("/projects", Projects)
     http.HandleFunc("/blog", Blog)
+    http.HandleFunc("/resources", Resources)
 
     //misc:
     http.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("static"))))
