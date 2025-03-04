@@ -30,19 +30,23 @@ func handler(tmpl string) http.HandlerFunc {
 func main() {
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-    //main pages
+    // Main pages
     http.HandleFunc("/", handler("home.html"))
     http.HandleFunc("/contact", handler("contact.html"))
     http.HandleFunc("/blog", handler("blog.html"))
     http.HandleFunc("/projects", handler("projects.html"))
     http.HandleFunc("/resources", handler("resources.html"))
 
-    //secondary pages
+    // Secondary pages
     http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
 
-    fmt.Println("Starting server on 0.0.0.0:10000...")
-    if err := http.ListenAndServe("0.0.0.0:10000", nil); err != nil {
+    port := os.Getenv("PORT")
+    if port == "" {
+        port = "10000" // Default to 10000 if not set (for local testing)
+    }
+
+    fmt.Println("Starting server on port " + port + "...")
+    if err := http.ListenAndServe("0.0.0.0:"+port, nil); err != nil {
         fmt.Printf("Error starting server: %v\n", err)
     }
 }
-
