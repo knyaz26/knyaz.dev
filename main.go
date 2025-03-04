@@ -45,7 +45,7 @@ func Projects(w http.ResponseWriter, r *http.Request) {
 
 func Blog(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "text/html")
-    if err := projectsTemplate.Execute(w, nil); err != nil {
+    if err := blogTemplate.Execute(w, nil); err != nil {
         panic(err)
     }
 }
