@@ -40,8 +40,8 @@ func main() {
     //secondary pages
     http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
 
-    fmt.Println("Starting server on :10000...")
-    if err := http.ListenAndServe(":10000", nil); err != nil {
+    fmt.Println("Starting server on 0.0.0.0:10000...")
+    if err := http.ListenAndServe("0.0.0.0:10000", nil); err != nil {
         fmt.Printf("Error starting server: %v\n", err)
     }
 }
