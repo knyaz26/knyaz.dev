@@ -5,7 +5,6 @@ import (
     "html/template"
     "net/http"
     "path/filepath"
-    "os"
 )
 
 func renderTemplate(w http.ResponseWriter, tmpl string) {
@@ -41,13 +40,5 @@ func main() {
     // Secondary pages
     http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
 
-    port := os.Getenv("PORT")
-    if port == "" {
-        port = "10000" // Default to 10000 if not set (for local testing)
-    }
-
-    fmt.Println("Starting server on port " + port + "...")
-    if err := http.ListenAndServe("0.0.0.0:"+port, nil); err != nil {
-        fmt.Printf("Error starting server: %v\n", err)
-    }
+    http.ListenAndServe(":10000", nil)
 }
