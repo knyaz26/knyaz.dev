@@ -5,6 +5,7 @@ import (
     "html/template"
     "net/http"
     "path/filepath"
+    "os"
 )
 
 func renderTemplate(w http.ResponseWriter, tmpl string) {
