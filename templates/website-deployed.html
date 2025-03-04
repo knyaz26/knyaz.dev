@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/styles.css">
+        <title>Knyaz's Website</title>
+    </head>
+    <body>
+        {{template "navbar"}}
+       <div class="content">
+            <h1>website deployed</h1>
+            <hr>
+            <h2>my first website.</h2>
+            <p>It took me 3 days to make this site, which is a lot considering how basic it is. But that’s by design—I prefer keeping things simple. The site has five pages: Projects, Blog, Knyaz, Resources, and Contact. It’s a basic blog site.</p>
+            <hr class="invisible">
+            <h3>technologies used</h3>
+            <p>I used Go for routing and named templates. I didn’t do much else with Go, but it was the best option for keeping things organized. Named templates were especially useful definitely a must have. I deployed the site on Render, which is free and easy to use. It auto-updates with each commit, which is great since im very lazy. The domain is from Namecheap, costing me $9.</p>
+            <hr class="invisible">
+            <h3>future plans</h3>
+            <p>The site isn’t responsive yet, and there are parts I don’t completely understand. It works, but there’s a lot of room for improvement. I plan to update the site and deal with issues over time.
+            <hr class="invisible">
+       </div>
+       {{template "footer"}}
+    </body>
+</html>
