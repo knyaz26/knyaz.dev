@@ -10,8 +10,9 @@ import (
 func renderTemplate(w http.ResponseWriter, tmpl string) {
     layoutPath := filepath.Join("templates", "layout", "navbar.html")
     footerPath := filepath.Join("templates", "layout", "footer.html")
+    headerPath := filepath.Join("templates", "layout", "header.html")
     tmplPath := filepath.Join("templates", tmpl)
-    t, err := template.ParseFiles(tmplPath, layoutPath, footerPath)
+    t, err := template.ParseFiles(tmplPath, layoutPath, footerPath, headerPath)
     if err != nil {
         http.Error(w, fmt.Sprintf("Error parsing template: %v", err), http.StatusInternalServerError)
         return
