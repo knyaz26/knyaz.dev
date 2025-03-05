@@ -66,10 +66,6 @@ a, a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    border-bottom: 1px dotted #eaeaea;
-}
-
 hr {
     border: solid rgba(0, 0, 0, 0.2) 1px;
     margin: 1em 0
