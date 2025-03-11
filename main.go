@@ -40,6 +40,7 @@ func main() {
 
     // Secondary pages
     http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
+    http.HandleFunc("/blog/aa-defence", handler("aa-defence.html"))
 
     http.ListenAndServe(":10000", nil)
 }

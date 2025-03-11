@@ -186,6 +186,11 @@ nav{
     border-bottom: none;
 }
 
+.project_div {
+    flex-direction: column;
+    padding: 0;
+}
+
 /* IDs */
 
 #frame_contact {
@@ -194,7 +199,3 @@ nav{
     align-items: center;
 }
 
-#project_div {
-    flex-direction: column;
-    padding: 0;
-}
