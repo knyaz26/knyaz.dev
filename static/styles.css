@@ -66,6 +66,11 @@ a, a:visited {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline dotted #eaeaea;
+    text-decoration-thickness: 1px;
+}
+
 hr {
     border: solid rgba(0, 0, 0, 0.2) 1px;
     margin: 1em 0
