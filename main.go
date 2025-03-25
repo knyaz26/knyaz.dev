@@ -42,6 +42,7 @@ func main() {
     http.HandleFunc("/blog/website-deployed", handler("website-deployed.html"))
     http.HandleFunc("/blog/aa-defence", handler("aa-defence.html"))
     http.HandleFunc("/blog/jetpacker", handler("jetpacker.html"))
+    http.HandleFunc("/blog/roblox-minesweeper", handler("roblox-minesweeper.html"))
 
     http.ListenAndServe(":10000", nil)
 }
