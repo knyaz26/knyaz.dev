@@ -196,6 +196,11 @@ nav{
     padding: 0;
 }
 
+.iframe_container {
+    display: flex;
+    justify-content: center;
+}
+
 /* IDs */
 
 #frame_contact {
