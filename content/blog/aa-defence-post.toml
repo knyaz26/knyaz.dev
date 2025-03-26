@@ -1,0 +1,27 @@
+title = "AA Defence Game Post"
+subtitle = "My Simple Godot Project"
+post_date = "2025-03-11"
+
+description = """
+AA Defence is a simple 2D survival game built with Godot Engine.
+The goal is to shoot down incoming enemy planes to survive as long as possible.
+Designed for quick play sessions.
+"""
+
+pictures = [
+    "/static/images/aa-defence1.png",
+    "/static/images/aa-defence2.png"
+]
+
+technologies_used = """
+- Godot Engine (with GDScript) for game logic and physics.
+- Aseprite for pixel art graphics.
+- LMMS and Chord Player for sound effects and music.
+"""
+
+future_plans = "Currently, you can't restart after dying. This needs fixing! I also want to add more enemy types."
+
+resources = [
+    { text = "Play on Itch.io", url = "https://knyaz26.itch.io/aa-defence" },
+    { text = "View Source on GitHub", url = "https://github.com/knyaz26/AA-Defence" }
+]
