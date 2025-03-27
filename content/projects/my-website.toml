@@ -1,21 +1,26 @@
-template = "project_post.html" 
+template = "project-post.html" 
 
 title = "my website"
 subtitle = "details on this project"
-post_date = ""
+post_date = "3/4/2025"
 
 description = """
+This website is my pet project, that will be improved over time. I will mostly be using it to document my projects and ideas. For now it has a lot of problems and shortcomings, however these are all issues that I will improve as my skills in web development increases.
 """
 
-pictures = [
+#pictures = []
+
+technologies_used = """
+This website was built using Golang. It's mostly a static site built using html and css, however in the future I plan on adding javascript and maybe sql.
+""" 
+
+#future_plans = ""
+
+resources = [
+    { text = "Code available on my Github", url = "https://www.github.com/knyaz26/knyaz.dev"}
 ]
 
-technologies_used = ""
-
-future_plans = ""
-
-# resources = [
-#     { text = "", url = "" }
-# ]
-
-# logs = ""
+logs = [
+    { text = "my-website-02", url = "https://www.knyaz.dev/blog/my-website-02" },
+    { text = "my-website-01", url = "https://www.knyaz.dev/blog/my-website-01" }
+] 

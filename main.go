@@ -26,7 +26,7 @@ type PageContent struct {
 	Pictures              []string   `toml:"pictures,omitempty"`
 	FuturePlans           string     `toml:"future_plans,omitempty"`
 	Resources             []Resource `toml:"resources,omitempty"`
-	Logs                  string     `toml:"logs,omitempty"`
+	Logs                  []Resource `toml:"logs,omitempty"`
 	TechnologiesUsed      string     `toml:"technologies_used,omitempty"`
 	IframeSrc             string     `toml:"iframe_src,omitempty"`
 	IframeWidth           string     `toml:"iframe_width,omitempty"`
@@ -49,11 +49,15 @@ func init() {
 	templates = template.New("").Funcs(funcMap)
 	templates = template.Must(templates.ParseGlob("templates/*.html"))
 	templates = template.Must(templates.ParseGlob("templates/layout/*.html"))
-	log.Println("Templates parsed successfully")
 }
 
 func renderTemplate(w http.ResponseWriter, tmplName string, data interface{}) {
-	templates.ExecuteTemplate(w, tmplName, data)
+	err := templates.ExecuteTemplate(w, tmplName, data)
+	if err != nil {
+		log.Printf("!!! TEMPLATE EXECUTION ERROR for '%s': %v", tmplName, err)
+		// Consider uncommenting this for production to send a generic error page
+		// http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
 }
 
 func staticPageHandler(tmplName string) http.HandlerFunc {
@@ -69,7 +73,6 @@ func contentPageHandler() http.HandlerFunc {
 
 		if len(parts) == 1 && (parts[0] == "blog" || parts[0] == "projects") {
 			indexTemplate := parts[0] + ".html"
-			log.Printf("Rendering index path '%s' using template '%s'", r.URL.Path, indexTemplate)
 			renderTemplate(w, indexTemplate, nil)
 			return
 		}
@@ -87,7 +90,6 @@ func contentPageHandler() http.HandlerFunc {
 				http.NotFound(w, r)
 			} else {
 				log.Printf("Non-fatal error reading content file %s: %v", tomlPath, err)
-				// Production should likely return 500 here
 			}
 			return
 		}
@@ -96,15 +98,12 @@ func contentPageHandler() http.HandlerFunc {
 		_, err = toml.Decode(string(tomlBytes), &pageData)
 		if err != nil {
 			log.Printf("Non-fatal error decoding TOML file %s: %v", tomlPath, err)
-			// Production should likely return 500 here
-			return // Or attempt to proceed, risky
+			return
 		}
-
 
 		templateToRender := pageData.Template
 		if templateToRender == "" {
 			log.Printf("Template not specified in TOML: %s", tomlPath)
-			// Production should return 500 here
 			return
 		}
 
@@ -124,6 +123,5 @@ func main() {
 	http.HandleFunc("/projects/", contentPageHandler())
 
 	port := ":10000"
-	log.Printf("Server starting on http://localhost%s", port)
 	http.ListenAndServe(port, nil)
 }
