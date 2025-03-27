@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -35,18 +34,18 @@ type PageContent struct {
 }
 
 var templates *template.Template
-var funcMap = template.FuncMap{
-	"default": func(def string, val interface{}) string {
-		s := fmt.Sprintf("%v", val)
-		if s == "" || s == "<nil>" {
-			return def
-		}
-		return s
-	},
+
+func defaultFunc(value, fallback string) string {
+	if value == "" {
+		return fallback
+	}
+	return value
 }
 
 func init() {
-	templates = template.New("").Funcs(funcMap)
+	templates = template.New("").Funcs(template.FuncMap{
+		"default": defaultFunc,
+	})
 	templates = template.Must(templates.ParseGlob("templates/*.html"))
 	templates = template.Must(templates.ParseGlob("templates/layout/*.html"))
 }
@@ -55,8 +54,6 @@ func renderTemplate(w http.ResponseWriter, tmplName string, data interface{}) {
 	err := templates.ExecuteTemplate(w, tmplName, data)
 	if err != nil {
 		log.Printf("!!! TEMPLATE EXECUTION ERROR for '%s': %v", tmplName, err)
-		// Consider uncommenting this for production to send a generic error page
-		// http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
 
@@ -86,10 +83,7 @@ func contentPageHandler() http.HandlerFunc {
 		tomlBytes, err := os.ReadFile(tomlPath)
 		if err != nil {
 			if os.IsNotExist(err) {
-				log.Printf("Content file not found for path '%s': %s", r.URL.Path, tomlPath)
 				http.NotFound(w, r)
-			} else {
-				log.Printf("Non-fatal error reading content file %s: %v", tomlPath, err)
 			}
 			return
 		}
@@ -97,18 +91,14 @@ func contentPageHandler() http.HandlerFunc {
 		var pageData PageContent
 		_, err = toml.Decode(string(tomlBytes), &pageData)
 		if err != nil {
-			log.Printf("Non-fatal error decoding TOML file %s: %v", tomlPath, err)
 			return
 		}
 
-		templateToRender := pageData.Template
-		if templateToRender == "" {
-			log.Printf("Template not specified in TOML: %s", tomlPath)
+		if pageData.Template == "" {
 			return
 		}
 
-		log.Printf("Rendering content path '%s' using template '%s' with data from '%s'", r.URL.Path, templateToRender, tomlPath)
-		renderTemplate(w, templateToRender, pageData)
+		renderTemplate(w, pageData.Template, pageData)
 	}
 }
 
@@ -125,3 +115,4 @@ func main() {
 	port := ":10000"
 	http.ListenAndServe(port, nil)
 }
+
