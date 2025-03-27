@@ -1,0 +1,18 @@
+title = ""
+subtitle = ""
+post_date = ""
+
+description = """
+"""
+
+pictures = [
+]
+
+technologies_used = ""
+
+future_plans = ""
+
+resources = [
+    { text = "", url = "" },
+    { text = "", url = "" }
+]

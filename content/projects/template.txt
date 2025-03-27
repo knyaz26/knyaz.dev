@@ -1,0 +1,21 @@
+template = "project_post.html" 
+
+title = ""
+subtitle = ""
+post_date = ""
+
+description = """
+"""
+
+pictures = [
+]
+
+technologies_used = ""
+
+future_plans = ""
+
+# resources = [
+#     { text = "", url = "" }
+# ]
+
+# logs = ""

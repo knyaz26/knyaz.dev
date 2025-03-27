@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    {{template "header" .}}
+    <body>
+        {{template "navbar"}}
+
+        <div class="content">
+            <h1>{{ .Title }}</h1>
+            <hr>
+
+            {{ if .Subtitle }}
+                <h2>{{ .Subtitle }}</h2>
+            {{ end }}
+
+             {{ if .PostDate }}
+                <strong>posted on {{ .PostDate }}</strong>
+                <hr class="invisible">
+            {{ end }}
+
+            {{/* Include description if provided */}}
+            {{ if .Description }}
+                <p>{{ .Description }}</p>
+                 <hr class="invisible">
+            {{ end }}
+
+            {{/* The main iframe part */}}
+            {{ if .IframeSrc }}
+                <div class="iframe_container">
+                    <iframe
+                        src="{{ .IframeSrc }}"
+                        width="{{ .IframeWidth | default "640" }}px"
+                        height="{{ .IframeHeight | default "360" }}px"
+                        {{ if .IframeAllowFullscreen }}allowfullscreen{{ end }}
+                        frameborder="0">
+                        Your browser doesn't support iframes.
+                    </iframe>
+                </div>
+                <hr class="invisible">
+            {{ end }}
+
+            {{/* Optionally add resources section here too if needed */}}
+            {{ if .Resources }}
+                <h3>resources</h3>
+                {{ range .Resources }}
+                    <p>{{ .Text }} <a href="{{ .URL }}">here</a></p>
+                {{ end }}
+                 <hr class="invisible">
+            {{ end }}
+
+        </div>
+        {{template "footer"}}
+    </body>
+</html>

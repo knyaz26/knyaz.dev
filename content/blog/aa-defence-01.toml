@@ -13,11 +13,7 @@ pictures = [
     "/static/images/aa-defence2.png"
 ]
 
-technologies_used = """
-- Godot Engine (with GDScript) for game logic and physics.
-- Aseprite for pixel art graphics.
-- LMMS and Chord Player for sound effects and music.
-"""
+technologies_used = "Godot Engine (with GDScript) for game logic and physics. Aseprite for pixel art graphics. LMMS and Chord Player for sound effects and music."
 
 future_plans = "Currently, you can't restart after dying. This needs fixing! I also want to add more enemy types."
 

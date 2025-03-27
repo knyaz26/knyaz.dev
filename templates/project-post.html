@@ -18,8 +18,8 @@
             {{ end }}
 
             {{ if .Description }}
+                <h3>description</h3>
                 <p>{{ .Description }}</p>
-                <hr class="invisible">
             {{ end }}
 
             {{ if .Pictures }}
@@ -30,9 +30,29 @@
                  <hr class="invisible">
             {{ end }}
 
+            {{ if .TechnologiesUsed }}
+                <h3>technologies used</h3>
+                <p>{{ .TechnologiesUsed }}</p>
+                 <hr class="invisible">
+            {{ end }}
+
             {{ if .FuturePlans }}
                 <h3>future plans</h3>
                 <p>{{ .FuturePlans }}</p>
+                 <hr class="invisible">
+            {{ end }}
+
+            {{ if .Resources }}
+                <h3>resources</h3>
+                {{ range .Resources }}
+                    <p>{{ .Text }} <a href="{{ .URL }}">here</a></p>
+                {{ end }}
+                 <hr class="invisible">
+            {{ end }}
+
+            {{ if .Logs }}
+                <h3>logs</h3>
+                <p>{{ .Logs }}</p>
                  <hr class="invisible">
             {{ end }}
 

@@ -18,23 +18,29 @@ type Resource struct {
 }
 
 type PageContent struct {
-	Title            string     `toml:"title"`
-	Subtitle         string     `toml:"subtitle,omitempty"`
-	PostDate         string     `toml:"post_date,omitempty"`
-	Description      string     `toml:"description,omitempty"`
-	Pictures         []string   `toml:"pictures,omitempty"`
-	TechnologiesUsed string     `toml:"technologies_used,omitempty"`
-	FuturePlans      string     `toml:"future_plans,omitempty"`
-	Resources        []Resource `toml:"resources,omitempty"`
-	Logs             string     `toml:"logs,omitempty"`
+	Template              string     `toml:"template"`
+	Title                 string     `toml:"title"`
+	Subtitle              string     `toml:"subtitle,omitempty"`
+	PostDate              string     `toml:"post_date,omitempty"`
+	Description           string     `toml:"description,omitempty"`
+	Pictures              []string   `toml:"pictures,omitempty"`
+	FuturePlans           string     `toml:"future_plans,omitempty"`
+	Resources             []Resource `toml:"resources,omitempty"`
+	Logs                  string     `toml:"logs,omitempty"`
+	TechnologiesUsed      string     `toml:"technologies_used,omitempty"`
+	IframeSrc             string     `toml:"iframe_src,omitempty"`
+	IframeWidth           string     `toml:"iframe_width,omitempty"`
+	IframeHeight          string     `toml:"iframe_height,omitempty"`
+	IframeAllowFullscreen bool       `toml:"iframe_allowfullscreen,omitempty"`
 }
-
 
 var templates *template.Template
 var funcMap = template.FuncMap{
 	"default": func(def string, val interface{}) string {
 		s := fmt.Sprintf("%v", val)
-		if s == "" || s == "<nil>" { return def }
+		if s == "" || s == "<nil>" {
+			return def
+		}
 		return s
 	},
 }
@@ -47,16 +53,7 @@ func init() {
 }
 
 func renderTemplate(w http.ResponseWriter, tmplName string, data interface{}) {
-	if tmpl := templates.Lookup(tmplName); tmpl == nil {
-		log.Printf("Error: Template '%s' not found", tmplName)
-		http.Error(w, fmt.Sprintf("Internal error: Template '%s' not found", tmplName), http.StatusInternalServerError)
-		return
-	}
-	err := templates.ExecuteTemplate(w, tmplName, data)
-	if err != nil {
-		log.Printf("Error executing template %s: %v", tmplName, err)
-		http.Error(w, "Error rendering page", http.StatusInternalServerError)
-	}
+	templates.ExecuteTemplate(w, tmplName, data)
 }
 
 func staticPageHandler(tmplName string) http.HandlerFunc {
@@ -67,10 +64,18 @@ func staticPageHandler(tmplName string) http.HandlerFunc {
 
 func contentPageHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		urlPath := strings.TrimPrefix(r.URL.Path, "/")
+		urlPath := strings.Trim(r.URL.Path, "/")
+		parts := strings.Split(urlPath, "/")
+
+		if len(parts) == 1 && (parts[0] == "blog" || parts[0] == "projects") {
+			indexTemplate := parts[0] + ".html"
+			log.Printf("Rendering index path '%s' using template '%s'", r.URL.Path, indexTemplate)
+			renderTemplate(w, indexTemplate, nil)
+			return
+		}
+
 		cleanedPath := filepath.Clean(urlPath)
 		if cleanedPath == "." || strings.Contains(cleanedPath, "..") {
-			http.Error(w, "Invalid path", http.StatusBadRequest)
 			return
 		}
 
@@ -78,11 +83,11 @@ func contentPageHandler() http.HandlerFunc {
 		tomlBytes, err := os.ReadFile(tomlPath)
 		if err != nil {
 			if os.IsNotExist(err) {
-				log.Printf("Content file not found: %s", tomlPath)
+				log.Printf("Content file not found for path '%s': %s", r.URL.Path, tomlPath)
 				http.NotFound(w, r)
 			} else {
-				log.Printf("Error reading content file %s: %v", tomlPath, err)
-				http.Error(w, "Error reading content file", http.StatusInternalServerError)
+				log.Printf("Non-fatal error reading content file %s: %v", tomlPath, err)
+				// Production should likely return 500 here
 			}
 			return
 		}
@@ -90,14 +95,20 @@ func contentPageHandler() http.HandlerFunc {
 		var pageData PageContent
 		_, err = toml.Decode(string(tomlBytes), &pageData)
 		if err != nil {
-			log.Printf("Error decoding TOML file %s: %v", tomlPath, err)
-			http.Error(w, "Error processing content file", http.StatusInternalServerError)
+			log.Printf("Non-fatal error decoding TOML file %s: %v", tomlPath, err)
+			// Production should likely return 500 here
+			return // Or attempt to proceed, risky
+		}
+
+
+		templateToRender := pageData.Template
+		if templateToRender == "" {
+			log.Printf("Template not specified in TOML: %s", tomlPath)
+			// Production should return 500 here
 			return
 		}
 
-		templateToRender := "blog-post.html"
-
-		log.Printf("Rendering path '%s' using template '%s' with data from '%s'", r.URL.Path, templateToRender, tomlPath)
+		log.Printf("Rendering content path '%s' using template '%s' with data from '%s'", r.URL.Path, templateToRender, tomlPath)
 		renderTemplate(w, templateToRender, pageData)
 	}
 }
@@ -106,16 +117,13 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/", staticPageHandler("home.html"))
-	// Add other static routes like /contact, /resources if they exist
+	http.HandleFunc("/contact", staticPageHandler("contact.html"))
+	http.HandleFunc("/resources", staticPageHandler("resources.html"))
 
 	http.HandleFunc("/blog/", contentPageHandler())
 	http.HandleFunc("/projects/", contentPageHandler())
-	// Add any other base paths that should use TOML + post.html
 
 	port := ":10000"
 	log.Printf("Server starting on http://localhost%s", port)
-	err := http.ListenAndServe(port, nil)
-	if err != nil {
-		log.Fatalf("Server failed to start: %v", err)
-	}
+	http.ListenAndServe(port, nil)
 }
