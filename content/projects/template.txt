@@ -7,6 +7,11 @@ post_date = ""
 description = """
 """
 
+iframe_src = "https://example.com"
+iframe_width = "640"
+iframe_height = "360"
+iframe_allowfullscreen = true
+
 pictures = [
 ]
 

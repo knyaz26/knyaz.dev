@@ -1,0 +1,32 @@
+template = "project-post.html" 
+
+title = "aa-defence"
+subtitle = "Details on this project"
+post_date = "3/11/2025"
+
+description = """
+aa defence is a simple 2d survival game, where you have to survive ever increasing hordes of enemy planes by shooting them down. the game is very simple by design amd a single run will not last more then 2 minutes.
+"""
+
+iframe_src = "/static/games/aa-defence/index.html"
+
+iframe_width = "640"
+
+iframe_height = "360"
+
+technologies_used = """
+I used godot to make my game, this is mostly because of its built in physics which i didnt want to make from scratch and also its really useful particle system. I used aseprite to draw all the sprites and I used lmms in combination with chord player to make audio.
+"""
+
+future_plans = """
+The game is complete with minor issues. Some mechanics, especially enemy spawning, are inconsistent. Occasionally, the game gets way too easy or absurdly difficult. Im not really gonna put any more efford into it since it was just a weekend project to start with. 
+"""
+
+resources = [
+    { text = "game availabe on itch.io", url = "https://knyaz26.itch.io/aa-defence" },
+    { text = "source code availabe on my github", url = "https://github.com/knyaz26/AA-Defence" }
+]
+
+logs = [
+    { text = "made a simple minigame", url = "/blog/aa-defence-01" }
+]
