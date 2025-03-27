@@ -1,3 +1,5 @@
+template = "blog-post.html"
+
 title = ""
 subtitle = ""
 post_date = ""

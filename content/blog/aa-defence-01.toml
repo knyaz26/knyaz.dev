@@ -1,5 +1,7 @@
-title = "AA Defence Game Post"
-subtitle = "My Simple Godot Project"
+template = "blog-post.html"
+
+title = "AA Defence Game Deployed"
+subtitle = "A Simple 2D Project"
 post_date = "2025-03-11"
 
 description = """
