@@ -1,4 +1,4 @@
-template = "project_post.html" 
+template = "project-post.html" 
 
 title = ""
 subtitle = ""
@@ -14,8 +14,10 @@ technologies_used = ""
 
 future_plans = ""
 
-# resources = [
-#     { text = "", url = "" }
-# ]
+resources = [
+    { text = "", url = "" }
+]
 
-# logs = ""
+logs = [
+    { text = "", url = "" }
+]

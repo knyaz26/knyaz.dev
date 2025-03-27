@@ -1,0 +1,30 @@
+template = "project-post.html" 
+
+title = "Roblox Minesweeper"
+subtitle = ""
+post_date = "3/25/2025"
+
+description = """
+A 3d version of a classical minesweeper game, where instead of clicking on the tiles you walk over them to reveal them. It has all the same rules as original game plus some functionality added.
+"""
+
+pictures = [
+    "/static/images/roblox-minesweeper1.png",
+    "/static/images/roblox-minesweeper2.png"
+]
+
+technologies_used = """
+Made in roblox using luau. I handled tile generation, game logic and movement. All models and textures are my own. No sound effects yet.
+"""
+
+future_plans = """
+Finished project will include UI, difficulty settings, improved visuals and sound effects.
+"""
+
+resources = [
+    { text = "Playable on roblox here", url = "https://www.roblox.com/games/130492473153936/minesweeper" }
+]
+
+logs = [
+    { text = "Added game logic", url = "/blog/roblox-minesweeper-01" }
+]

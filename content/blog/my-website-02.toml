@@ -5,7 +5,7 @@ subtitle = "Refactor"
 post_date = "3/27/2025"
 
 description = """
-It's been over a month now but I finally had time to work on this site again. First off i changed the server service provider from render to railway and it is so much faster now, I will never go back. I managed to refactor the code so it is not as repetative, I did a pretty good job too considering i dont work with web. Now i write my content in toml file so golang can put it in predefined templates for me. I also changed around some icons and did content rearrangement.
+It's been over a month now but I finally had time to work on this site again. First off i changed the server service provider from render to railway and it is so much faster now, I will never go back. I also managed to refactor the code so it is not as repetative, I did a pretty good job too considering i dont work with web. Now i write my content in toml file so golang can put it in predefined templates for me. I also changed around some icons and did content rearrangement. Including funally figuring out how iframes work so i can set up games right here instead of linking them to itch.io, apperently i was just writing the path wrong.
 """
 
 pictures = [

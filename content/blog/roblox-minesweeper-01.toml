@@ -1,0 +1,20 @@
+template = "blog-post.html"
+
+title = "Roblox Minesweeper 01"
+subtitle = "added game logic"
+post_date = "3/25/2025"
+
+description = """
+This was my first time working in roblox so I really had no idea what I was doing. It took me a while to understand the basics of roblox api but once i did, making minesweeper was very easy, especially because i have already made it previousely in raylib. In this first update i basically made the games skeleton, most of the logical parts such as tile generation and game mechanics are done.
+"""
+
+technologies_used = ""
+
+future_plans = """
+In the future i plan on polishing this experience. I need to add more niche mechanics for exaple define how many flags you can place down... I need to make new animations and fix a couple bugs i found.
+"""
+
+resources = [
+    { text = "", url = "" },
+    { text = "", url = "" }
+]
