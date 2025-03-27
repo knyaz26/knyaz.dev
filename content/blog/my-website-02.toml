@@ -1,0 +1,23 @@
+template = "blog-post.html"
+
+title = "My Website 02"
+subtitle = "Refactor"
+post_date = "3/27/2025"
+
+description = """
+It's been over a month now but I finally had time to work on this site again. First off i changed the server service provider from render to railway and it is so much faster now, I will never go back. I managed to refactor the code so it is not as repetative, I did a pretty good job too considering i dont work with web. Now i write my content in toml file so golang can put it in predefined templates for me. I also changed around some icons and did content rearrangement.
+"""
+
+pictures = [
+]
+
+technologies_used = ""
+
+future_plans = """
+The code still needs a lot of work, I can still find things that can be automated, so i will have to fix that when i get time. I also havent made the site responsive at all or start with javascript. Right now im considering using svelte for frontend, and i also really want to start using databases.
+"""
+
+resources = [
+    { text = "", url = "" },
+    { text = "", url = "" }
+]

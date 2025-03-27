@@ -17,13 +17,11 @@
                 <hr class="invisible">
             {{ end }}
 
-            {{/* Include description if provided */}}
             {{ if .Description }}
                 <p>{{ .Description }}</p>
                  <hr class="invisible">
             {{ end }}
 
-            {{/* The main iframe part */}}
             {{ if .IframeSrc }}
                 <div class="iframe_container">
                     <iframe
@@ -38,7 +36,6 @@
                 <hr class="invisible">
             {{ end }}
 
-            {{/* Optionally add resources section here too if needed */}}
             {{ if .Resources }}
                 <h3>resources</h3>
                 {{ range .Resources }}

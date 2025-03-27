@@ -21,6 +21,6 @@ resources = [
 ]
 
 logs = [
-    { text = "my-website-02", url = "https://www.knyaz.dev/blog/my-website-02" },
-    { text = "my-website-01", url = "https://www.knyaz.dev/blog/my-website-01" }
+    { text = "refactor", url = "/blog/my-website-02" },
+    { text = "first deployment", url = "/blog/my-website-01" }
 ] 
