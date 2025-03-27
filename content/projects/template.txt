@@ -1,7 +1,7 @@
 template = "project-post.html" 
 
 title = ""
-subtitle = ""
+subtitle = "Details On This Project"
 post_date = ""
 
 description = """

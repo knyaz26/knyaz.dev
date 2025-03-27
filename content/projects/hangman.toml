@@ -1,0 +1,32 @@
+template = "project-post.html" 
+
+title = ""
+subtitle = "Details On This Project"
+post_date = "3/25/2025"
+
+description = """
+Originaly made for my university class, hangman is a very simple 2d puzzle game. The rules are simple, guess the word or the rat gets it.
+"""
+
+iframe_src = "/static/games/hangman/index.html"
+iframe_width = "640"
+iframe_height = "360"
+iframe_allowfullscreen = true
+
+pictures = [
+]
+
+technologies_used = "I used godot to make the game because it uses python syntax (project was for python class), and also because I prefer it way more over raylib-py which I originaly planned to use. For sprites i used aseprite."
+
+future_plans = """
+The game is unfinished, I made it in an hour so I did't have time to make much, I will try to find time soon to fix bugs and add functionality.
+"""
+
+resources = [
+    { text = "itch.io", url = "https://knyaz26.itch.io/hangman" },
+    { text = "code from github", url = "https://github.com/knyaz26/hangman" }
+]
+
+logs = [
+    { text = "first version", url = "/blog/hangman-01" }
+]

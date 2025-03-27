@@ -1,0 +1,13 @@
+template = "blog-post.html"
+
+title = "Hangman"
+subtitle = "First Version"
+post_date = "3/25/2025"
+
+description = """
+Made a simple 2d guessing game for a university project. I made it in just an hour so graphics are simple, logic is flawed and soundeffects are reused. The game is also very hard because of how words are chosen, and is generally unfun to play. Originally it had it even had particles and sound effects for game over condition, but despite the games simple nature I considered them too graphic.
+"""
+
+future_plans = """
+Somewhere this week ill find time to fix bugs, polish the UI, add a bit of functionality and rework how words are chosen.
+"""
