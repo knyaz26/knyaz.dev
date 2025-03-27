@@ -10,18 +10,29 @@
 
             {{ if .Subtitle }}
                 <h2>{{ .Subtitle }}</h2>
-            {{ else }}
-                <h2>Details on this project</h2>
             {{ end }}
 
-            {{ if .PostDate }}
+             {{ if .PostDate }}
                 <strong>posted on {{ .PostDate }}</strong>
                 <hr class="invisible">
             {{ end }}
 
             {{ if .Description }}
-                <h3>description</h3>
                 <p>{{ .Description }}</p>
+                 <hr class="invisible">
+            {{ end }}
+
+            {{ if .IframeSrc }}
+                <div class="iframe_container">
+                    <iframe
+                        src="{{ .IframeSrc }}"
+                        width="{{ .IframeWidth | default "640" }}px"
+                        height="{{ .IframeHeight | default "360" }}px"
+                        {{ if .IframeAllowFullscreen }}allowfullscreen{{ end }}
+                        frameborder="0">
+                        Your browser doesn't support iframes.
+                    </iframe>
+                </div>
                 <hr class="invisible">
             {{ end }}
 
@@ -61,10 +72,7 @@
                  <hr class="invisible">
             {{ end }}
 
-
-
         </div>
-
         {{template "footer"}}
     </body>
 </html>
