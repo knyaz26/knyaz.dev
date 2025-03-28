@@ -15,6 +15,5 @@ In the future i plan on polishing this experience. I need to add more niche mech
 """
 
 resources = [
-    { text = "", url = "" },
-    { text = "", url = "" }
+   { text = "details on this project", url = "/projects/roblox-minesweeper" }
 ]

@@ -2,7 +2,6 @@ package main
 
 import (
 	"html/template"
-	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -51,10 +50,7 @@ func init() {
 }
 
 func renderTemplate(w http.ResponseWriter, tmplName string, data interface{}) {
-	err := templates.ExecuteTemplate(w, tmplName, data)
-	if err != nil {
-		log.Printf("!!! TEMPLATE EXECUTION ERROR for '%s': %v", tmplName, err)
-	}
+	templates.ExecuteTemplate(w, tmplName, data)
 }
 
 func staticPageHandler(tmplName string) http.HandlerFunc {
@@ -81,20 +77,10 @@ func contentPageHandler() http.HandlerFunc {
 
 		tomlPath := filepath.Join("content", cleanedPath+".toml")
 		tomlBytes, err := os.ReadFile(tomlPath)
-		if err != nil {
-			if os.IsNotExist(err) {
-				http.NotFound(w, r)
-			}
-			return
-		}
 
 		var pageData PageContent
 		_, err = toml.Decode(string(tomlBytes), &pageData)
 		if err != nil {
-			return
-		}
-
-		if pageData.Template == "" {
 			return
 		}
 

@@ -37,6 +37,14 @@
                  <hr class="invisible">
             {{ end }}
 
+            {{ if .Resources }}
+                <h3>logs</h3>
+                {{ range .Resources }}
+                    <p>{{ .Text }} <a href="{{ .URL }}">here</a></p>
+                {{ end }}
+                 <hr class="invisible">
+            {{ end }}
+
         </div>
 
         {{template "footer"}}

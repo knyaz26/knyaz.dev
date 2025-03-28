@@ -18,6 +18,6 @@ The code still needs a lot of work, I can still find things that can be automate
 """
 
 resources = [
-    { text = "", url = "" },
-    { text = "", url = "" }
+    { text = "details no this project", url = "projects/my-website" },
 ]
+

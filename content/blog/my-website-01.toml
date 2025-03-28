@@ -18,6 +18,5 @@ There is still a lot that needs to be done and this is definitely not my last bl
 """
 
 resources = [
-    { text = "", url = "" },
-    { text = "", url = "" }
+    { text = "details no this project", url = "projects/my-website" },
 ]

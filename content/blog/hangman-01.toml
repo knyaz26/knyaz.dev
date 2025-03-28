@@ -11,3 +11,7 @@ Made a simple 2d guessing game for a university project. I made it in just an ho
 future_plans = """
 Somewhere this week ill find time to fix bugs, polish the UI, add a bit of functionality and rework how words are chosen.
 """
+
+resources = [
+    { text = "details on this project", url = "/projects/hangman" }
+]

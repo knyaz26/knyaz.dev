@@ -11,6 +11,5 @@ A 2D survival game where you operate an anti-air gun against endless enemy waves
 future_plans = "Despite the game needing polish im all done with it, one weekend was more then it deserved."
 
 resources = [
-    { text = "Play on Itch.io", url = "https://knyaz26.itch.io/aa-defence" },
-    { text = "View Source on GitHub", url = "https://github.com/knyaz26/AA-Defence" }
+    { text = "details on this project", url = "/projects/aa-defence" }
 ]
