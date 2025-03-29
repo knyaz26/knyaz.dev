@@ -28,7 +28,7 @@ resources = [
 ]
 
 logs = [
-    { text = "final version", url = "/blog/hangman-02" }
+    { text = "final version", url = "/blog/hangman-02" },
     { text = "first version", url = "/blog/hangman-01" }
 ]
 
