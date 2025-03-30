@@ -183,6 +183,7 @@ nav{
 }
 
 .cropped_img {
+    image-rendering:pixelated;
     width: 8em;
     height: 6em;
 }
