@@ -14,7 +14,7 @@ pictures = [
 ]
 
 technologies_used = """
-Made in roblox using luau. I handled tile generation, game logic and movement. All models and textures are my own. No sound effects yet.
+Made in roblox using luau. I handled tile generation, game logic and movement. All models and textures are my own.
 """
 
 future_plans = """
@@ -26,5 +26,6 @@ resources = [
 ]
 
 logs = [
+    { text = "Version 2.0", url = "/blog/roblox-minesweeper-02" },
     { text = "Added game logic", url = "/blog/roblox-minesweeper-01" }
 ]

@@ -1,0 +1,18 @@
+template = "blog-post.html"
+
+title = "roblox-minesweeper-02"
+subtitle = "Version 2.0"
+post_date = "3/30/2025"
+
+description = """
+In this update, I added an animation for board generation and made the mine counters colorful. Flag collisions are now removed, and I added a spawn animation for the flag. Flags are limited, so you can’t use them endlessly. Sound effects are now included for tile reveals, flag removals, and explosions. Mines have been changed from a red block to textures, and the minefield logic is now in a local script.
+"""
+
+future_plans = """
+I plan to add a UI in the future, I have never done UI in roblox before.
+"""
+
+resources = [
+    { text = "details on this project", url = "/projects/roblox-minesweeper" }
+]
+
