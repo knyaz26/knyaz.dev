@@ -26,6 +26,7 @@ resources = [
 ]
 
 logs = [
+    { text = "Version 3.0", url = "/blog/roblox-minesweeper-03" },
     { text = "Version 2.0", url = "/blog/roblox-minesweeper-02" },
     { text = "Added game logic", url = "/blog/roblox-minesweeper-01" }
 ]

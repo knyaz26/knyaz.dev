@@ -1,0 +1,17 @@
+template = "blog-post.html"
+
+title = "roblox-minesweeper-03"
+subtitle = "Version 3.0"
+post_date = "4/8/2025"
+
+description = """
+Made a small lobby, just a few blocks really, with a computer. Clicking the computer screen opens up a basic UI to pick the game mode instead of the old block settings. Spent time fixing bugs with the game logic so tiles actually get destroyed right and flags show up properly after adding the UI. Checked the sound effect triggers. Used an AI tool to help change the code style to use more PascalCase, cleaning it up. Also used an AI to make a game icon from a pencil sketch I drew.
+"""
+
+future_plans = """
+Need to add proper win and lose conditions. Like showing all the mines if you lose, or maybe a message.
+"""
+
+resources = [
+    { text = "details on this project", url = "/projects/roblox-minesweeper" }
+]
