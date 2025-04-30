@@ -13,7 +13,7 @@ body {
 }
 
 a {
-    color: cyan;
+    color: rgb(26, 86, 205);
     text-decoration: none;
 }
 
@@ -114,6 +114,15 @@ footer {
     margin-left: 2vw;
 }
 
+/*about page*/
+.text_block {
+    width: 100%;
+}
+
+.about_text {
+    padding-top: 2vh;
+}
+
 }
 
 @media (min-width: 769px) {
@@ -177,6 +186,15 @@ footer {
     width: 60px;
     height: auto;
     image-rendering: pixelated;
+}
+
+/*about page*/
+.text_block {
+    width: 70%;
+}
+
+.about_text {
+    padding-top: 2vh;
 }
 
 }
