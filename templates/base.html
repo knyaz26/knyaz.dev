@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title>knyaz.dev</title>
+	  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+    <body>
+		<div class="header">
+			<h1>knyaz.dev</h1>
+			<nav class="navbar">
+				<a href="/home">Home</a></li>
+				<a href="/about">About</a></li>
+				<a href="/projects">Projects</a></li>
+				<a href="/contact">Contact</a></li>
+			</nav>
+		</div>
+    	<div class="content">
+    	    {% block content %}
+    	    {% endblock %}
+    	</div>
+    </body>
+	<footer>
+		<div class="footer">
+			<p>&copy; 2023 knyaz.dev</p>
+			<p>Made in Georgia using Flask</p>
+		</div>
+	</footer>	
+</html>
