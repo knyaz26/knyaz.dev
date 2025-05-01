@@ -1,14 +1,20 @@
 /*global resets*/
 
+@font-face {
+    font-family: 'ProtoNerdFont';
+    src: url('/static/0xProtoNerdFont-Regular.ttf') format('truetype');
+  }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 16px;
+    color: #364145;
+    font-family: ProtoNerdFont, sans-serif;
 }
 
 body {
-    font-family: sans-serif;
     background-color: #edeeed;
 }
 
@@ -21,7 +27,6 @@ a {
 
 .header h1 {
     font-size: 2.5rem;
-    color: #333;
     text-align: center;
     margin-top: 7vh;
 }
@@ -38,7 +43,7 @@ a {
 .navbar a {
     margin: 0 15px;
     font-size: 1.2rem;
-    color: #333;
+    color: #364145;
 }
 
 .navbar a:hover {
@@ -90,7 +95,6 @@ footer {
 
 .card_title h2 {
     font-size: 1.5rem;
-    color: #333;
     margin-top: 1vh;
     margin-left: 2vw;
 }
@@ -103,7 +107,6 @@ footer {
 
 .card_content p {
     font-size: 1.2rem;
-    color: #333;
     margin-left: 2vw;
 }
 
@@ -165,7 +168,6 @@ footer {
 
 .card_title h2 {
     font-size: 1.5rem;
-    color: #333;
     margin-top: 2vh;
 }
 
@@ -178,7 +180,6 @@ footer {
 
 .card_content p {
     font-size: 1.2rem;
-    color: #333;
 }
 
 .card_content img {
