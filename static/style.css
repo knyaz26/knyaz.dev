@@ -126,6 +126,35 @@ footer {
     padding-top: 2vh;
 }
 
+/*contact page*/
+
+.contact_block {
+    display: flex;
+    flex-direction: column;
+    background: #fffdfc;
+    border: #dfe3e8 solid 3px;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.contact_image {
+    width: 60vw;
+    height: auto;
+    background-color: #364145;
+    border-radius: 5px;
+    margin: 3vw;
+}
+
+.contact_image img{
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.contact_text {
+    margin: 3vw;
+}
+
 }
 
 @media (min-width: 769px) {
@@ -196,6 +225,35 @@ footer {
 
 .about_text {
     padding-top: 2vh;
+}
+
+/*contact page*/
+
+.contact_block {
+    display: flex;
+    background: #fffdfc;
+    border: #dfe3e8 solid 3px;
+    border-radius: 30px;
+    height: 50vh;
+    align-items: center;
+}
+
+.contact_image {
+    width: 20vw;
+    height: auto;
+    background-color: #364145;
+    border-radius: 5px;
+    margin: 3vw;
+}
+
+.contact_image img{
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.contact_text {
+    margin: 3vw;
 }
 
 }
