@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="projects_block">
+    <h2>Projects</h2>
+    <div class="projects_group">
+        <div class="projects_year">
+            <h2>2025</h2>
+        </div>
+        <div class="projects_list">
+            {% set name = "Project 1" %}
+            {% set date = "2025-01-01" %}
+            {% set url = "/projects/project1" %}
+            {% include "projects_item.html" %}
+            
+            {% set name = "Project 2" %}
+            {% set date = "2025-02-01" %}
+            {% set url = "/projects/project2" %}
+            {% include "projects_item.html" %}
+            
+            {% set name = "Project 3" %}
+            {% set date = "2025-03-01" %}
+            {% set url = "/projects/project3" %}
+            {% include "projects_item.html" %}
+            
+        </div>
+    </div>
+
+    </div>
+    </div>
+</div>
+{% endblock %}
