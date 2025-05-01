@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="contact_block">
+  <div class="contact_image">
+    <img src="{{ url_for('static', filename='saba.png') }}" alt="Saba's Image">
+  </div>
+  <div class="contact_text">
+    <h2>Contact Me</h2>
+    <p>If you want to reach out, you can find me on:</p>
+    <ul class="contact_list">
+      <li><a href="mailto:saba2006.diasamidze@gmail.com">saba2006.diasamidze@gmail.com</a></li>
+      <li><a href="https://discord.gg/zPqgCbKY">Discord</a></li>
+      <li><a href="https://www.github.com/knyaz26">GitHub</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
