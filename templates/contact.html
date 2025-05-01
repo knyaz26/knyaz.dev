@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    {{template "header"}}
-    <body>
-        {{template "navbar"}}
-        <div class="content">
-            <h1>Contact</h1>
-            <hr>
-            <div class="frame_light" id="frame_contact">
-                <img src="static/images/placeholder.jpg" alt="saba's photo">
-                <hr class="invisible">
-                <h1>Saba Diasamidze</h1>
-                <a href="mailto:saba2006.diasamidze@gmail.com" target="_blank"><strong>saba2006.diasamidze@gmail.com</strong></a>
-                <a href="http://www.github.com/knyaz26" target="_blank"><strong>Github</strong></a>
-                <hr class="invisible">
-            </div>
-            <hr class="invisible">
-        </div>
-        {{template "footer"}}
-    </body>
-</html>
+{% block content %}
+<div class="contact_block">
+  <div class="contact_image">
+    <img src="{{ url_for('static', filename='saba.png') }}" alt="Saba's Image">
+  </div>
+  <div class="contact_text">
+    <h2>Contact Me</h2>
+    <p>You can find me on:</p>
+    <ul class="contact_list">
+      <li><a href="mailto:saba2006.diasamidze@gmail.com">Email</a></li>
+      <li><a href="https://discord.gg/zPqgCbKY">Discord</a></li>
+      <li><a href="https://www.github.com/knyaz26">GitHub</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

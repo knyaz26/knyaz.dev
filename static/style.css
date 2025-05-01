@@ -1,0 +1,333 @@
+/*global resets*/
+
+@font-face {
+    font-family: 'ProtoNerdFont';
+    src: url('/static/0xProtoNerdFont-Regular.ttf') format('truetype');
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #364145;
+    font-family: ProtoNerdFont, sans-serif;
+}
+
+body {
+    background-color: #edeeed;
+}
+
+a {
+    color: rgb(26, 86, 205);
+    text-decoration: none;
+}
+
+/*global classes*/
+
+.header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 7vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 3vh;
+}
+
+.navbar a {
+    margin: 0 15px;
+    font-size: 1.2rem;
+    color: #364145;
+}
+
+.navbar a:hover {
+    font-weight: bold;
+    text-decoration: solid underline 3px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.card-link:hover div {
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+
+/*global classes*/
+
+.content {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 90vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+
+/*home page*/
+
+.card {
+    background-color: #fffdfc;
+    border-radius: 30px;
+    border: 3px solid #dfe3e8;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.card_title h2 {
+    font-size: 1.5rem;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.card_content {
+	display: flex;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.card_content p {
+    font-size: 1.2rem;
+    margin-left: 2vw;
+}
+
+.card_content img {
+    width: 10%;
+    height: auto;
+    image-rendering: pixelated;
+    margin-left: 2vw;
+}
+
+/*about page*/
+.text_block {
+    width: 100%;
+}
+
+.about_text {
+    padding-top: 2vh;
+}
+
+/*contact page*/
+
+.contact_block {
+    display: flex;
+    flex-direction: column;
+    background: #fffdfc;
+    border: #dfe3e8 solid 3px;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.contact_image {
+    width: 60vw;
+    height: auto;
+    background-color: #364145;
+    border-radius: 5px;
+    margin: 3vw;
+}
+
+.contact_image img{
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.contact_text {
+    margin: 3vw;
+}
+
+/*project page*/
+
+.projects_block {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
+.projects_group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vh;
+}
+
+.projects_year {
+    margin-right: 2vw;
+}
+
+.projects_item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: dashed 1px #364145;
+    margin-bottom: 2vh;
+}
+
+.projects_list {
+    flex-grow: 1;
+}
+
+.projects_name {
+    font-size: 0.8rem;
+}
+
+.projects_date {
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+}
+
+@media (min-width: 769px) {
+/*global classes*/
+
+.content {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+    justify-content: center;
+	width: 90vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    width: 20vw;
+    height: 20vw;
+    margin-top: 5vh;
+    margin-left: 2vw;
+}
+
+/*home page*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffdfc;
+    border-radius: 30px;
+    border: 3px solid #dfe3e8;
+    width: 100%;
+    height: 100%;
+    min-height: 225px;
+    min-width: 225px;
+}
+
+.card_title h2 {
+    font-size: 1.5rem;
+    margin-top: 2vh;
+}
+
+.card_content {
+    margin: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_content p {
+    font-size: 1.2rem;
+}
+
+.card_content img {
+    margin: 2vh;
+    width: 60px;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+/*about page*/
+.text_block {
+    width: 70%;
+}
+
+.about_text {
+    padding-top: 2vh;
+}
+
+/*contact page*/
+
+.contact_block {
+    display: flex;
+    background: #fffdfc;
+    border: #dfe3e8 solid 3px;
+    border-radius: 30px;
+    height: 50vh;
+    align-items: center;
+}
+
+.contact_image {
+    width: 20vw;
+    height: auto;
+    background-color: #364145;
+    border-radius: 5px;
+    margin: 3vw;
+}
+
+.contact_image img{
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.contact_text {
+    margin: 3vw;
+}
+
+/*project page*/
+
+.projects_block {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
+.projects_group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vh;
+}
+
+.projects_year {
+    margin-right: 2vw;
+}
+
+.projects_item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: dashed 1px #364145;
+    margin-bottom: 2vh;
+}
+
+.projects_list {
+    flex-grow: 1;
+}
+
+.projects_name {
+    font-size: 1.2rem;
+}
+
+.projects_date {
+    margin-left: auto;
+}
+}

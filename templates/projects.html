@@ -1,49 +1,32 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    {{template "header"}}
-    <body>
-        {{template "navbar"}}
-       <div class="content">
-           <h1>Projects</h1>
-           <hr>
-           <h2>Welcome to my projects page</h2>
-           <p>Here you will find a collection of my projects. You’ll find work related to programming, game development, and tech experiments I’ve been working on.</p>
-           <hr class="invisible">
-           <div class="frame_light">
-               <a href="/projects/roblox-minesweeper" class="linked_div">
-                   <div class="frame_dark project_div">
-                       <img src="/static/images/roblox-minesweeper-icon.png" class="cropped_img">
-                       <strong>roblox-minesweeper</strong>
-                       <p>3/25/2025</p>
-                   </div>
-               </a>
-               <a href="/projects/hangman" class="linked_div">
-                   <div class="frame_dark project_div">
-                       <img src="/static/images/hangman-icon.png" class="cropped_img">
-                       <strong>hangman</strong>
-                       <p>3/25/2025</p>
-                   </div>
-               </a>
-               </a>
-               <a href="/projects/aa-defence" class="link_div">
-                   <div class="frame_dark project_div">
-                       <img src="/static/images/aa-defence-icon.png" class="cropped_img">
-                       <strong>aa-defence</strong>
-                       <p>3/11/2025</p>
-                   </div>
-               </a>
-               <a href="/projects/my-website" class="link_div">
-                   <div class="frame_dark project_div">
-                       <img src="/static/images/my-website-icon.png" class="cropped_img">
-                       <strong>My Website</strong>
-                       <p>3/4/2025</p>
-                   </div>
-              </a>
-           </div>
-           <hr class="invisible">
-       </div>
-       {{template "footer"}}
-    </body>
-</html>
+{% block content %}
+<div class="projects_block">
+    <h2>Projects</h2>
+    <div class="projects_group">
+        <div class="projects_year">
+            <h2>2025</h2>
+        </div>
+        <div class="projects_list">
+            {% set name = "Project 1" %}
+            {% set date = "2025-01-01" %}
+            {% set url = "/projects/project1" %}
+            {% include "projects_item.html" %}
+            
+            {% set name = "Project 2" %}
+            {% set date = "2025-02-01" %}
+            {% set url = "/projects/project2" %}
+            {% include "projects_item.html" %}
+            
+            {% set name = "Project 3" %}
+            {% set date = "2025-03-01" %}
+            {% set url = "/projects/project3" %}
+            {% include "projects_item.html" %}
+            
+        </div>
+    </div>
 
+    </div>
+    </div>
+</div>
+{% endblock %}

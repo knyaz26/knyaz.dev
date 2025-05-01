@@ -1,54 +1,51 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    {{template "header"}}
-    <body>
-        {{template "navbar"}}
-       <div class="content">
-            <h1>Home Page</h1>
-            <hr>
-            <h2>Welcome To Knyaz.dev</h1>
-            <p>This site serves as a space to document my learning journey in tech. Here, I’ll share my experiences, projects, and thoughts on programming, game development, and other tech topics that interest me. This blog is a reflection of my ongoing process and improvements.</p>
-            <hr>
-            <h2>Background On Me:</h2>
-            <ul>
-                <li><p>My name is Saba.</p></li>
-                <li><p>I'm from georgia.</p></li>
-                <li><p>I'm 19 years old.</p></li>
-                <li><p>Currently studying electronic engineering.</p></li>
-                <li><p>Plays Hoi4.</p></li>
-                <li><p>I use Arch along with Neovim btw.</p></li>
-                <li><p>Not into WEB</p></li>
-            </ul>
-            <hr>
-            <h2>What I Work With</h2>
-            <div class="frame_dark">
-                <div class="tech_node">
-                    <img src="/static/images/c++.svg"><strong>cpp</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/bash.svg"><strong>bash</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/vim.svg"><strong>vim</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/python.svg"><strong>python</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/golang.svg"><strong>golang</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/html.svg"><strong>html</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/css.svg"><strong>css</strong>
-                </div>
-                 <div class="tech_node">
-                    <img src="/static/images/cs.svg"><strong>c#</strong>
-                </div>
-            </div>
-       </div>
-       {{template "footer"}}
-   </body>
-</html>
+{% block content %}
+<a href="/" class="card-link">
+    <div class="card">
+        <div class="card_title">
+            <h2>Home</h2>
+        </div>
+        <div class="card_content">
+            <img src="static/saba.png" alt="saba">
+            <p>Hello, I'm saba, a computer engineering student.</p>
+        </div>
+    </div>
+</a>
+
+<a href="/about" class="card-link">
+    <div class="card">
+        <div class="card_title">
+            <h2>About</h2>
+        </div>
+        <div class="card_content">
+            <img src="static/page.png" alt="page">
+            <p>Who am I and what I do.</p>
+        </div>
+    </div>
+</a>
+
+<a href="/projects" class="card-link">
+    <div class="card">
+        <div class="card_title">
+            <h2>Projects</h2>
+        </div>
+        <div class="card_content">
+            <img src="static/piece.png" alt="piece">
+            <p>A selection of my work.</p>
+        </div>
+    </div>
+</a>
+
+<a href="/contact" class="card-link">
+    <div class="card">
+        <div class="card_title">
+            <h2>Contact</h2>
+        </div>
+        <div class="card_content">
+            <img src="static/envelope.png" alt="envelope">
+            <p>Get in touch.</p>
+        </div>
+    </div>
+</a>
+{% endblock %}
