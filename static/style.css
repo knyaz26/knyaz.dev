@@ -112,7 +112,7 @@ footer {
 
 .card_content img {
     width: 32px;
-    height: auto;
+    height: 32px;
     image-rendering: pixelated;
     margin-left: 2vw;
 }
